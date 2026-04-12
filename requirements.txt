@@ -6,5 +6,6 @@ langchain-text-splitters
 langchain-core
 pydantic
 pysqlite3-binary
-chromadb
+chromadb>=0.5.0,<0.6.0
+langchain-chroma
 pypdf
