@@ -4,12 +4,16 @@ sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 import streamlit as st
 import os, json, hashlib, time, glob
+import logging
 import pandas as pd
 from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
+logger = logging.getLogger(__name__)
 try:
     from langchain_chroma import Chroma
+    logger.info("Using Chroma from langchain_chroma.")
 except ImportError:
     from langchain_community.vectorstores import Chroma
+    logger.info("Using Chroma fallback from langchain_community.vectorstores.")
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.prompts import PromptTemplate
