@@ -7,6 +7,7 @@ import os, json, hashlib, time, glob
 import logging
 import pandas as pd
 from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
+logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 try:
     from langchain_chroma import Chroma
